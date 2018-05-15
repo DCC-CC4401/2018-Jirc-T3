@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'landingPage',
     'crispy_forms',
+    'header',
+    'fichaArticulo'
+
 ]
 
 MIDDLEWARE = [

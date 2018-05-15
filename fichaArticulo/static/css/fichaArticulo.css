@@ -1,0 +1,60 @@
+.centre {
+    margin:0 auto;
+    margin-top: 25px;
+    display: table;
+}
+
+.derecha{
+    max-width: 500px;
+    display: table-cell;
+}
+
+.espacio{
+    display: table-cell;
+    min-width: 20px;
+}
+
+.izq{
+    max-width: 500px;
+    display: table-cell;
+    margin-left: 50px;
+}
+
+.nombre-estado{
+    display: table;
+    height: auto;
+}
+
+.nombre{
+    display: table-cell;
+    height: auto;
+    text-align: center;
+}
+
+.estado{
+    height: available;
+    margin-left: 10px;
+    display: table-cell;
+    margin-top: 0 auto;
+}
+
+.foto {
+    max-width: 500px;
+}
+
+.imagen {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.descripcion {
+    Border: dashed;
+    border-radius: 5px;
+    min-height: 50px;
+}
+
+.cuadro-reserva{
+    margin-top: 30px;
+    border: solid 1px black;
+}

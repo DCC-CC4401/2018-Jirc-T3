@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends "header.html" %}
+{% block content %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha Articulo</title>
+    <link rel="stylesheet" href="{% static 'css/fichaArticulo.css' %}">
+</head>
+
+
+<body>
+    <div class="centre">
+        <div class="derecha">
+            <div class="nombre-estado">
+                <h1 class="nombre" style="max-width: 300px">Amplificador</h1>
+                <img class="estado" src="{% static "Disponible.png" %}" alt="My image" width="150px">
+            </div>
+            <div class="imagen">
+                <img class="foto" src="{% static "amplificador.jpg" %}" alt="My image">
+            </div>
+            <div class="descripcion">
+                <p>Esta es la descropcon del amplificador</p>
+            </div>
+        </div>
+        <div class="espacio"></div>
+        <div class="izq">
+            <div class="solicitar-reserva">
+                <h1 class="nombre">Solicitar reserva</h1>
+            </div>
+            <div class="cuadro-reserva">
+                <div class="fecha">
+                    <form action="/action_page.php">
+                    Fecha:
+                    <input type="date" name="bday"> <i class="fa fa-calendar" style="font-size: 20px"></i>
+                        <br>
+                    Hora:
+                    <input type="time" name="usr_time"> <i class="fa fa-clock-o" style="font-size: 20px"></i>
+                        <br>
+                    <input type="submit" value="Pedir">
+                    </form></p>
+                </div>
+
+            </div>
+            <div class="historial-reservas">
+
+            </div>
+            <div class="cuadro-historial">
+
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>

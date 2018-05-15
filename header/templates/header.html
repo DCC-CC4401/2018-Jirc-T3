@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<header>
+    <div class="page-header">
+        <img class="logo" src="{% static "Logo-Cei.png" %}" alt="My image" align="left">
+        <div class="right">
+            <i class="fa fa-envelope" style="font-size:24px; margin-right: 20px" ></i>
+            <dl class="info" style="text-align: right;">
+                <dt> Jocelyn Simmonds</dt>
+                <dt style="font-size: 8px">12.345.678-9</dt>
+                <dt style="font-size: 8px">jsimmonds@dcc.uchile.cl</dt>
+            </dl>
+            <div class="dropdown">
+                <i class="fa fa-user-circle-o" style="font-size:65px;" ></i>
+                <button style="background: #EDEDED; border-color: #EDEDED; color: black;" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="caret" ></span></button>
+                <ul class="dropdown-menu">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+{% block content %}
+
+{% endblock %}
+</html>
