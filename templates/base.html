@@ -25,8 +25,8 @@
                 <a href="{% url 'home' %}">
                   CC4401
                   {% if user.is_authenticated %}
-                    {% if user.is_teacher %}
-                      <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="Admin profile"></span>
+                    {% if user.is_adminPerson %}
+                      <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="AdminPerson profile"></span>
                     {% else %}
                       <span class="icon-graduation-cap" data-toggle="tooltip" data-placement="right" title="Person profile"></span>
                     {% endif %}
