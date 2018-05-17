@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 class User(AbstractUser):
     is_person = models.BooleanField(default=False)
     is_adminPerson = models.BooleanField(default=False)
@@ -10,11 +11,13 @@ class User(AbstractUser):
     is_staff, is_superuser, last_login, date_joined.
     """
 
+
 class Person(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
 
     def __str__(self):
         return self.user.username
+
 
 class AdminPerson(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)

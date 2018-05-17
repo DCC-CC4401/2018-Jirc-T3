@@ -11,6 +11,7 @@ from ..decorators import person_required, adminPerson_required
 from ..models import User, Person
 from ..forms import PersonSignUpForm
 
+
 class PersonSignUpView(CreateView):
     model = User
     form_class = PersonSignUpForm
@@ -24,6 +25,7 @@ class PersonSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('person:landing_person')
+
 
 @method_decorator([login_required, person_required], name='dispatch')
 class LandingPersonListView(ListView):
