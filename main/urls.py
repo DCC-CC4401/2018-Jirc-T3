@@ -25,6 +25,7 @@ urlpatterns = [
     path(r'fichaArticulo/', include('fichaArticulo.urls')),
     path(r'header/', include('header.urls')),
 
+
 ]
 
 

@@ -1,0 +1,22 @@
+{% extends 'tablas/manager_landing_page.html' %}
+
+{% block tabla1 %}
+    {% for user in users %}
+    <tr>
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    </tr>
+
+    {% endfor %}
+{% endblock %}
+
+{% block tabla2 %}
+    {% for item in items %}
+    <tr>
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.state }}</td>
+    </tr>
+
+    {% endfor %}
+{% endblock %}

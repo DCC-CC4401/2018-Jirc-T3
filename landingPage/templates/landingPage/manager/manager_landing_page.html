@@ -1,0 +1,206 @@
+{#{% load staticfiles %}#}
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>   <meta charset="UTF-8">#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">#}
+{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">#}
+{#    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">#}
+{#    <link rel="stylesheet" href="{% static 'css/header.css' %}">#}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>#}
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />#}
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">#}
+{#    <link rel="stylesheet" href="{% static 'css/tablas.css' %}">#}
+{#        <script src="{% static 'js/displayTable.js' %}"></script>#}
+{#</head>#}
+{##}
+{##}
+{#<div class="flex-container">#}
+{##}
+    {# vertical button bar #}
+{#<div class="icon-bar">#}
+{#  <a href="#" onclick="show(1)" ><i class="fa fa-user"></i></a>#}
+{#  <a href="#" onclick="show(2)" ><i class="fa fa-shopping-cart"></i></a>#}
+{#  <a href="#" onclick="show(3)" ><i class="fa fa-clock-o"></i></a>#}
+{#</div>#}
+{#    <div id="table1">#}
+{##}
+{#        <div>#}
+{#        <h3>Usuarios</h3>#}
+{#            <table>#}
+{#                <tr>#}
+{#                    <th>ID </th>#}
+{#                    <th>Nombre </th>#}
+{#                    <th>Apellido </th>#}
+{#                    <th>RUT</th>#}
+{#                    <th>Correo</th>#}
+{#                    <th>Estado</th>#}
+{#                    <th><a href="#" onclick="addUser()" ><i class="fa fa-plus"></i></a></th>#}
+{#                </tr>#}
+{##}
+{#            {% block tabla1 %}#}
+{#                {% for user in users %}#}
+{#                    <tr>#}
+{#                    <td>{{ user.id }}</td>#}
+{#                    <td>{{ user.name }}</td>#}
+{#                    <td>{{ user.rut }}</td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
+{#            {% endblock %}#}
+{##}
+{#            </table>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{#        <div id="table2">#}
+{##}
+{#        <div>#}
+{#        <h3>Articulos</h3>#}
+{#        <table>#}
+{##}
+{#            <tr>#}
+{#            <th>ID </th>#}
+{#            <th>Nombre </th>#}
+{#            <th>Estado </th>#}
+{#            </tr>#}
+{##}
+{#            {% block tabla2 %}#}
+{#                {% for item in items %}#}
+{#                    <tr>#}
+{#                    <td>{{ item.id }}</td>#}
+{#                    <td>{{ item.name }}</td>#}
+{#                    <td>{{ item.state }}</td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
+{#            {% endblock %}#}
+{#        </table>#}
+{#        </div>#}
+{##}
+{#        <div>#}
+{#            <h3>Espacios</h3>#}
+{#            <table>#}
+{##}
+{#            <tr>#}
+{#            <th>ID </th>#}
+{#            <th>Nombre </th>#}
+{#            <th>Estado </th>#}
+{#            </tr>#}
+{#            </table>#}
+{#        </div>#}
+{##}
+{##}
+{#        </div>#}
+{#        <div id="table3"> Content of 3 </div>#}
+{##}
+{#</div>#}
+{##}
+{#</html>#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+{#//---------------------------------------------------------------#}
+<!DOCTYPE html>
+{% extends "header.html" %}
+{% block content %}
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="{% static 'manager/js/displayTable.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'manager/css/manager.css' %}">
+    <link rel="stylesheet" href="{% static 'manager/css/tablas.css' %}">
+</head>
+
+    <div class="flex-container">
+
+{#     vertical button bar#}
+<div class="icon-bar">
+  <a href="#" onclick="show(1)" ><i class="fa fa-user"></i></a>
+  <a href="#" onclick="show(2)" ><i class="fa fa-shopping-cart"></i></a>
+  <a href="#" onclick="show(3)" ><i class="fa fa-clock-o"></i></a>
+</div>
+
+        <div id="table1">
+
+        <div>
+        <h3>Usuarios</h3>
+            <table>
+                <tr>
+                    <th>ID </th>
+                    <th>Nombre </th>
+                    <th>Apellido </th>
+                    <th>RUT</th>
+                    <th>Correo</th>
+                    <th>Estado</th>
+                    <th><a href="#" onclick="addUser()" ><i class="fa fa-plus"></i></a></th>
+                </tr>
+
+            {% block tabla1 %}
+                {% for user in users %}
+                    <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.rut }}</td>
+                    </tr>
+                {% endfor %}
+            {% endblock %}
+
+            </table>
+        </div>
+
+    </div>
+            <div id="table2">
+
+        <div>
+        <h3>Articulos</h3>
+        <table>
+
+            <tr>
+            <th>ID </th>
+            <th>Nombre </th>
+            <th>Estado </th>
+            </tr>
+
+            {% block tabla2 %}
+                {% for item in items %}
+                    <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.state }}</td>
+                    </tr>
+                {% endfor %}
+            {% endblock %}
+        </table>
+        </div>
+
+        <div>
+            <h3>Espacios</h3>
+            <table>
+
+            <tr>
+            <th>ID </th>
+            <th>Nombre </th>
+            <th>Estado </th>
+            </tr>
+            </table>
+        </div>
+
+
+        </div>
+        <div id="table3"> Content of 3 </div>
+
+    </div>
+
+{% endblock %}
+</html>

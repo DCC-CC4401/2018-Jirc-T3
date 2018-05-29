@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
 
-from landingPage.models import (Person, AdminPerson, User)
+from .models import Person, User
 
 
 class PersonSignUpForm(UserCreationForm):
