@@ -1,7 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+import django.shortcuts
 
 
 def header(request):
     context = {}
-    return render(request, 'header.html', context)
-
+    return django.shortcuts.render(request, 'header.html', context)

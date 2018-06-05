@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
-from ..decorators import person_required, adminPerson_required
+from ..decorators import person_required, manager_required
 from ..models import User, Person
 from ..forms import PersonSignUpForm
 

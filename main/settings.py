@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'header',
     'fichaArticulo'
-
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,7 @@
-from django.conf.urls import url
+import django.conf.urls
 
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.fichaArticulo, name='fichaArticulo'),
+    django.conf.urls.url(r'^$', views.fichaArticulo, name='fichaArticulo')
 ]
