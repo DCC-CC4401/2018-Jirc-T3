@@ -54,7 +54,22 @@
     min-height: 50px;
 }
 
+.texto{
+    margin-left: 10px;
+}
+
 .cuadro-reserva{
     margin-top: 30px;
     border: solid 1px black;
+    min-height: 150px;
+}
+
+.fecha{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.historial-reserva{
+    margin-top: 30px;
+
 }

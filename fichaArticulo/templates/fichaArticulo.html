@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% extends "header.html" %}
+{% extends "base.html" %}
 {% block content %}
 {% load staticfiles %}
 <html lang="en">
@@ -9,19 +9,28 @@
     <link rel="stylesheet" href="{% static 'css/fichaArticulo.css' %}">
 </head>
 
+<form action="{% url 'fichaArticulo' %}" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="text" name="nombre" id="nombre" placeholder="Nuevo Articulo"/>
+<input id="imgFile" type="file" name="imgFile"/>
+<input type="submit" value="Agregar">
 
+{% for inv in item %}
 <body>
     <div class="centre">
         <div class="derecha">
             <div class="nombre-estado">
-                <h1 class="nombre" style="max-width: 300px">Amplificador</h1>
+                <h1 class="nombre" style="max-width: 300px">{{ inv.name }}{{ inv.state }}</h1>
                 <img class="estado" src="{% static "Disponible.png" %}" alt="My image" width="150px">
             </div>
             <div class="imagen">
-                <img class="foto" src="{% static "amplificador.jpg" %}" alt="My image">
+                este es e url: {{ inv.img}}
+                <img class="foto" src="{{ inv.img.url }}" >
             </div>
             <div class="descripcion">
-                <p>Esta es la descropcon del amplificador</p>
+                <div class="texto">
+                    <p>{{ inv.description }}</p>
+                </div>
             </div>
         </div>
         <div class="espacio"></div>
@@ -31,11 +40,14 @@
             </div>
             <div class="cuadro-reserva">
                 <div class="fecha">
-                    <form action="/action_page.php">
+                    <form action="/action_page.php" method="post">
                     Fecha:
-                    <input type="date" name="bday"> <i class="fa fa-calendar" style="font-size: 20px"></i>
+                    <input type="date" name="bday" style="margin-left: 25px"> <i class="fa fa-calendar" style="font-size: 20px"></i>
                         <br>
-                    Hora:
+                    Hora de retiro:
+                    <input type="time" name="usr_time" style="margin-left: 15px"> <i class="fa fa-clock-o" style="font-size: 20px"></i>
+                        <br>
+                    Hora de entrega:
                     <input type="time" name="usr_time"> <i class="fa fa-clock-o" style="font-size: 20px"></i>
                         <br>
                     <input type="submit" value="Pedir">
@@ -43,14 +55,17 @@
                 </div>
 
             </div>
-            <div class="historial-reservas">
+            <div class="historial-reserva">
+                <h1 class="nombre">Historial de reservas</h1>
+            </div>
+            <div class="cuadro-reserva">
 
             </div>
-            <div class="cuadro-historial">
 
-            </div>
+        </form>
         </div>
     </div>
 </body>
+{% endfor %}
 {% endblock %}
 </html>

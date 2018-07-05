@@ -53,6 +53,9 @@ form.example::after {
   display: table;
 }
 /*vertical-button-bar*/
+.row{
+    background-color: #EDEDED;
+}
 
 .icon-bar {
     width: 90px; /* Set a specific width */

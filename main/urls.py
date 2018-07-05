@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 import django.urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 import landingPage.views
 
@@ -25,7 +27,7 @@ urlpatterns = [
     django.urls.path(r'fichaArticulo/', django.urls.include('fichaArticulo.urls')),
     django.urls.path(r'header/', django.urls.include('header.urls')),
     django.urls.path(r'header/', django.urls.include('header.urls'))
-
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

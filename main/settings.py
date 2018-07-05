@@ -128,6 +128,12 @@ STATIC_URL = '/static/'
 
 # Custom Django auth settings
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'media'
+
+STATIC_ROOT = ''
+
 AUTH_USER_MODEL = 'landingPage.User'
 
 LOGIN_URL = 'login'
