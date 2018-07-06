@@ -1,7 +1,8 @@
-import django.conf.urls
+from django.conf.urls import url
 
 from . import views
 
 urlpatterns = [
-    django.conf.urls.url(r'^$', views.fichaArticulo, name='fichaArticulo')
+    url(r'^$', views.fichaArticulo, name='fichaArticulo'),
+    url(r'^reserva/$', views.reserva, name='reserva')
 ]

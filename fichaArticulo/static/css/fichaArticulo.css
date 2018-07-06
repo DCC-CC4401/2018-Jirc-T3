@@ -2,11 +2,13 @@
     margin:0 auto;
     margin-top: 25px;
     display: table;
+    width: available;
 }
 
 .derecha{
     max-width: 500px;
     display: table-cell;
+    margin-right: 50px;
 }
 
 .espacio{
@@ -61,7 +63,7 @@
 .cuadro-reserva{
     margin-top: 30px;
     border: solid 1px black;
-    min-height: 150px;
+    min-height: 25px;
 }
 
 .fecha{
