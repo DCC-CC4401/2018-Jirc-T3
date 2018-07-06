@@ -15,5 +15,7 @@ class Item(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
     img = models.ImageField(blank=True, upload_to='imagenes')
+    iTime = models.CharField(max_length=150, default="")
+    fTime = models.CharField(max_length=150, default="")
     description = models.CharField(max_length=200)
     state = models.PositiveSmallIntegerField(choices=STATES, null=True, blank=True)

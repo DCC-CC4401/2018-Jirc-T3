@@ -18,7 +18,7 @@
 
   </head>
   <header>
-          <div class="row" style="background-color: #EDEDED; width: available">
+          <div class="row" style="background-color: #EDEDED">
             <div class="col-6">
               <h1 class="logo">
                 <a href="{% url 'home' %}">
@@ -35,7 +35,7 @@
                 </a>
               </h1>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-6 text-right" style="margin-top: 15px">
               {% if user.is_authenticated %}
                 <p class="pt-3"> <strong>{{ user.username }}</strong>. <a href="{% url 'logout' %}">Cerrar sesión</a>.</p>
               {% else %}
