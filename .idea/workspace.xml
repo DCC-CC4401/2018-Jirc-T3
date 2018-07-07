@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a049f81-d7d1-467c-97b1-eb6a255f1bc8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/landingPage/templates/landingPage/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/landingPage/templates/landingPage/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/landingPage/templates/perfilUsuario/profilePerson.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perfilUsuario/views.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,7 +42,7 @@
       <file leaf-file-name="fichaArticulo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fichaArticulo/templates/fichaArticulo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state>
               <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
             </state>
           </provider>
@@ -102,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/perfilUsuario/models.py">
+      <file leaf-file-name="profilePerson.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/landingPage/templates/perfilUsuario/profilePerson.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="110">
+              <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -114,17 +123,17 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="22">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="2" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/landingPage/templates/landingPage/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+            <state relative-caret-position="198">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -197,8 +206,9 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/fichaArticulo/templates/fichaArticulo.html" />
         <option value="$PROJECT_DIR$/header/templates/base.html" />
-        <option value="$PROJECT_DIR$/perfilUsuario/models.py" />
         <option value="$PROJECT_DIR$/landingPage/templates/landingPage/home.html" />
+        <option value="$PROJECT_DIR$/perfilUsuario/models.py" />
+        <option value="$PROJECT_DIR$/landingPage/templates/perfilUsuario/profilePerson.html" />
       </list>
     </option>
   </component>
@@ -216,6 +226,9 @@
     <option name="y" value="27" />
     <option name="width" value="1269" />
     <option name="height" value="555" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -246,6 +259,13 @@
               <item name="landingPage" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="landingPage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="2018-Jirc-T3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="2018-Jirc-T3" type="462c0819:PsiDirectoryNode" />
+              <item name="landingPage" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="perfilUsuario" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="2018-Jirc-T3" type="b2602c69:ProjectViewProjectNode" />
@@ -401,9 +421,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fichaArticulo/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/fichaArticulo/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -561,7 +578,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fichaArticulo/templates/fichaArticulo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state>
           <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
         </state>
       </provider>
@@ -614,6 +631,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/perfilUsuario/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/landingPage/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-172">
@@ -624,24 +651,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/perfilUsuario/models.py">
+    <entry file="file://$PROJECT_DIR$/landingPage/templates/landingPage/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="198">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/landingPage/templates/landingPage/home.html">
+    <entry file="file://$PROJECT_DIR$/landingPage/templates/perfilUsuario/profilePerson.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
-          <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
