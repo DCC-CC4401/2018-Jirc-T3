@@ -13,17 +13,23 @@
     <div class="centre">
         <div class="derecha">
             <div class="nombre-estado">
-                <form action="{% url 'aceptarNombre' %}" method="post" enctype="multipart/form-data" style="display: inline-block">
-                        {% csrf_token %}
-                        <input id="name" type="text" name="name" placeholder="{{ item.name }}" style="width: 250px;"/>
-                        <input type="submit" class="btn" value="aceptar" name="{{ item.id }}" style="background-color: lightgreen">
-                </form>
-                <form action="{% url 'cancelarNombre' %}" method="post" enctype="multipart/form-data" style="display: inline-block">
-                        {% csrf_token %}
-                        <input type="submit" class="btn" value="cancelar" name="{{ item.id }}" style="background-color: lightcoral; width: 90px">
+                <h1 class="nombre" style="max-width: 300px">{{ item.name }}</h1>
 
-                </form>
-                <img class="estado" src="{% static "Disponible.png" %}" alt="My image" width="150px">
+                {% if item.state == 1 %}
+                    <div class = "disponible" style="width: auto;border-radius: 5px;color: white; background-color: green">< Disponible</div>
+                    {% endif %}
+
+                {% if item.state == 2 %}
+                    <div class = "reparacion" style="border-radius: 5px;color: white; background-color: darkgray">< En Reparación</div>
+                {% endif %}
+
+                {% if item.state == 3 %}
+                    <div class = "prestamo" style="border-radius: 5px;color: white; background-color: orange">< En Préstamo</div>
+                {% endif %}
+
+                {% if item.state == 4 %}
+                    <div class = "perdido" style="border-radius: 5px;color: white; background-color: red;">< Perdido</div>
+                {% endif %}
 
             </div>
 
@@ -31,8 +37,20 @@
                 <img class="foto" src="{{ item.img.url }}" >
             </div>
             <div class="descripcion">
-                <div class="texto">
-                    <p>{{ item.description }}</p>
+                <form action="{% url 'aceptarDes' %}" method="post" enctype="multipart/form-data" id="des" style="display: inline-block">
+                        {% csrf_token %}
+                        <textarea rows="4" cols="47" name="description" form="des">{{ item.description }}</textarea>
+                    <div>
+                        <input type="submit" class="btn" value="aceptar" name="{{ item.id }}" style="background-color: lightgreen">
+
+                        </form>
+                        <form action="{% url 'cancelarNombre' %}" method="post" enctype="multipart/form-data" style="display: inline-block">
+                        {% csrf_token %}
+                        <input type="submit" class="btn" value="cancelar" name="{{ item.id }}" style="background-color: lightcoral; width: 90px">
+
+
+                <br>
+                </form>
                 </div>
             </div>
         </div>

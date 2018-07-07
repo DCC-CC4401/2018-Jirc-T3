@@ -22,35 +22,19 @@
     margin-left: 50px;
 }
 
-.nombre-estado{
-    display: table;
-    height: auto;
-}
-
-.nombre{
-    display: table-cell;
-    height: auto;
-    text-align: center;
-}
-
-.estado{
-    height: available;
-    margin-left: 10px;
-    display: table-cell;
-    margin-top: 0 auto;
-}
-
 .foto {
     max-width: 500px;
 }
 
 .imagen {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-right: 20px;
 }
 
 .descripcion {
+    margin-top: 10px;
+    margin-bottom: 10px;
     Border: dashed;
     border-radius: 5px;
     min-height: 50px;

@@ -18,39 +18,76 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </form>
 
-{% for inv in item %}
 <body>
     <div class="centre">
         <div class="derecha">
             <div class="nombre-estado">
-                <h1 class="nombre" style="max-width: 300px">{{ inv.name }}{{ inv.state }}</h1>
-                <img class="estado" src="{% static "Disponible.png" %}" alt="My image" width="150px">
+                <h1 class="nombre" style="max-width: 300px">{{ item.name }}</h1>
+
+                {% if user.is_manager %}
+                    <form action="{% url 'editar' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                        <input type="submit" class="btn" value="Cambiar Nombre" name="{{ item.id }}">
+                    </form>
+                {% endif %}
+
+                {% if item.state == 1 %}
+                    <div class = "disponible" style="width: auto;border-radius: 5px;color: white; background-color: green">< Disponible</div>
+                    {% endif %}
+
+                {% if item.state == 2 %}
+                    <div class = "reparacion" style="border-radius: 5px;color: white; background-color: darkgray">< En Reparación</div>
+                {% endif %}
+
+                {% if item.state == 3 %}
+                    <div class = "prestamo" style="border-radius: 5px;color: white; background-color: orange">< En Préstamo</div>
+                {% endif %}
+
+                {% if item.state == 4 %}
+                    <div class = "perdido" style="border-radius: 5px;color: white; background-color: red;">< Perdido</div>
+                {% endif %}
+
+                {% if user.is_manager %}
+                    <form action="{% url 'editarEst' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                        <input type="submit" class="btn" value="Cambiar Estado" name="{{ item.id }}">
+                    </form>
+                {% endif %}
+
 
             </div>
+
+            <div class="imagen">
+                <img class="foto" src="{{ item.img.url }}" >
+            </div>
             {% if user.is_manager %}
-                <form action="{% url 'editar' %}" enctype="multipart/form-data">
-                    <input type="submit" class="btn" value="Edit" name="mybtn">
+                <form action="{% url 'editarFoto' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                    <input type="submit" class="btn" value="Cambiar Foto" name="{{ item.id }}">
                 </form>
             {% endif %}
-            <div class="imagen">
-                <img class="foto" src="{{ inv.img.url }}" >
-            </div>
             <div class="descripcion">
                 <div class="texto">
-                    <p>{{ inv.description }}</p>
+                    <p>{{ item.description }}</p>
                 </div>
             </div>
+            {% if user.is_manager %}
+                <form action="{% url 'editarDes' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                    <input type="submit" class="btn" value="Cambiar Descripcion" name="{{ item.id }}">
+                </form>
+            {% endif %}
         </div>
         <div class="espacio"></div>
         <div class="izq">
+            {% if user.is_manager %}
+            {% else %}
             <div class="solicitar-reserva">
                 <h1 class="nombre">Solicitar reserva</h1>
             </div>
+
             <div class="cuadro-reserva">
                 {% if user.is_authenticated %}
                 <div class="fecha">
                     <form action="{% url 'fichaArticulo' %}" method="post" enctype='multipart/form-data'>
                         {% csrf_token %}
+
                     Fecha de inicio:
                     <input type="date" name="idate" style="margin-left: 67px; alignment: right"> <i class="fa fa-calendar" style="font-size: 20px"></i>
                         <br>
@@ -63,29 +100,35 @@
                     Hora de entrega:
                     <input type="time" name="ftime" style="margin-left: 57px"> <i class="fa fa-clock-o" style="font-size: 20px"></i>
                         <br>
-                    <input type="submit" value="Pedir">
+                    <input type="submit" name="{{item.id}}" {% if user.is_manager %}value="Agregar" {% else %}value="Pedir"{% endif %}>
+
                     </form></p>
                 </div>
                 {% else %}
-                Debe iniciar sesión para realizar reservas.
+                    Debe iniciar sesión para realizar reservas.
                 {% endif %}
 
             </div>
+            {% endif %}
             <div class="historial-reserva">
                 <h1 class="nombre">Historial de reservas</h1>
             </div>
             <div class="cuadro-reserva">
-                {% for fecha in inv.Reserva.all %}
+                {% for fecha in item.Reserva.all %}
                     <tr>
                             - Desde el {{ fecha.iDate }} al las {{ fecha.iTime }}, hasta el {{ fecha.fDate }} a las {{ fecha.fTime }}<br>
                     </tr>
                 {% endfor %}
             </div>
+            {% if user.is_manager %}
+                <form action="{% url 'editar' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                    <input type="submit" class="btn" value="Cambiar Nombre" name="{{ item.id }}">
+                </form>
+            {% endif %}
 
 
         </div>
     </div>
 </body>
-{% endfor %}
 {% endblock %}
 </html>

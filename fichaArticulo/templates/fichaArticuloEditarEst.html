@@ -7,23 +7,64 @@
     <meta charset="UTF-8">
     <title>Ficha Articulo</title>
     <link rel="stylesheet" href="{% static 'css/fichaArticulo.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </head>
 
 <body>
     <div class="centre">
         <div class="derecha">
             <div class="nombre-estado">
-                <form action="{% url 'aceptarNombre' %}" method="post" enctype="multipart/form-data" style="display: inline-block">
+                <h1 class="nombre" style="max-width: 300px">{{ item.name }}{{ item.state }}</h1>
+
+                {% if item.state == 1 %}
+                    <div class = "disponible" style="width: auto;border-radius: 5px;color: white; background-color: green">< Disponible</div>
+                    {% endif %}
+
+                {% if item.state == 2 %}
+                    <div class = "reparacion" style="border-radius: 5px;color: white; background-color: darkgray">< En Reparación</div>
+                {% endif %}
+
+                {% if item.state == 3 %}
+                    <div class = "prestamo" style="border-radius: 5px;color: white; background-color: orange">< En Préstamo</div>
+                {% endif %}
+
+                {% if item.state == 4 %}
+                    <div class = "perdido" style="border-radius: 5px;color: white; background-color: red;">< Perdido</div>
+                {% endif %}
+
+                <form action="{% url 'aceptarEst' %}" method="post" enctype="multipart/form-data" id="des" style="display: inline-block">
                         {% csrf_token %}
-                        <input id="name" type="text" name="name" placeholder="{{ item.name }}" style="width: 250px;"/>
-                        <input type="submit" class="btn" value="aceptar" name="{{ item.id }}" style="background-color: lightgreen">
+                <div>
+                  <h4>Cambiar estado a:</h4>
+                  <label>
+                    <input type="radio" class="radio" value=1 name="state" />
+                      <div class = "disponible" style="width: auto;border-radius: 5px;color: white; background-color: green">< Disponible</div>
+                  </label>
+                  <label>
+                    <input type="radio" class="radio" value=2 name="state" />
+                      <div class = "reparacion" style="border-radius: 5px;color: white; background-color: darkgray">< En Reparación</div>
+                  </label>
+                  <label>
+                    <input type="radio" class="radio" value=3 name="state" />
+                      <div class = "prestamo" style="border-radius: 5px;color: white; background-color: orange">< En Préstamo</div>
+                  </label>
+                    <label>
+                    <input type="radio" class="radio" value=4 name="state" />
+                      <div class = "perdido" style="border-radius: 5px;color: white; background-color: red;">< Perdido</div>
+                  </label>
+                </div>
+
+                <div>
+                <input type="submit" class="btn" value="aceptar" name="{{ item.id }}" style="background-color: lightgreen" >
+
                 </form>
                 <form action="{% url 'cancelarNombre' %}" method="post" enctype="multipart/form-data" style="display: inline-block">
                         {% csrf_token %}
                         <input type="submit" class="btn" value="cancelar" name="{{ item.id }}" style="background-color: lightcoral; width: 90px">
 
                 </form>
-                <img class="estado" src="{% static "Disponible.png" %}" alt="My image" width="150px">
+                </div>
 
             </div>
 
