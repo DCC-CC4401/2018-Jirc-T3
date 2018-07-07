@@ -100,6 +100,7 @@
                     Hora de entrega:
                     <input type="time" name="ftime" style="margin-left: 57px"> <i class="fa fa-clock-o" style="font-size: 20px"></i>
                         <br>
+                    <input type="hidden" name="{{ user.rut }}" value="{{ user.email }}">
                     <input type="submit" name="{{item.id}}" {% if user.is_manager %}value="Agregar" {% else %}value="Pedir"{% endif %}>
 
                     </form></p>
@@ -114,15 +115,19 @@
                 <h1 class="nombre">Historial de reservas</h1>
             </div>
             <div class="cuadro-reserva">
+            {% if item.Reserva.count == 0 %}
+            No existen reservas en este momento.
+            {% else %}
                 {% for fecha in item.Reserva.all %}
                     <tr>
                             - Desde el {{ fecha.iDate }} al las {{ fecha.iTime }}, hasta el {{ fecha.fDate }} a las {{ fecha.fTime }}<br>
                     </tr>
                 {% endfor %}
+            {% endif %}
             </div>
             {% if user.is_manager %}
-                <form action="{% url 'editar' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
-                    <input type="submit" class="btn" value="Cambiar Nombre" name="{{ item.id }}">
+                <form action="{% url 'editarRes' %}" enctype="multipart/form-data" method="post">{% csrf_token %}
+                    <input type="submit" class="btn" value="Editar Reservas" name="{{ item.id }}">
                 </form>
             {% endif %}
 

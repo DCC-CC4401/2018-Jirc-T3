@@ -56,34 +56,7 @@
         </div>
         <div class="espacio"></div>
         <div class="izq">
-            <div class="solicitar-reserva">
-                <h1 class="nombre">Solicitar reserva</h1>
-            </div>
-            <div class="cuadro-reserva">
-                {% if user.is_authenticated %}
-                <div class="fecha">
-                    <form action="{% url 'fichaArticulo' %}" method="post" enctype='multipart/form-data'>
-                        {% csrf_token %}
-                    Fecha de inicio:
-                    <input type="date" name="idate" style="margin-left: 67px; alignment: right"> <i class="fa fa-calendar" style="font-size: 20px"></i>
-                        <br>
-                    Fecha de termino:
-                    <input type="date" name="fdate" style="margin-left: 50px"> <i class="fa fa-calendar" style="font-size: 20px"></i>
-                        <br>
-                    Hora de retiro:
-                    <input type="time" name="itime" style="margin-left: 75px"> <i class="fa fa-clock-o" style="font-size: 20px"></i>
-                        <br>
-                    Hora de entrega:
-                    <input type="time" name="ftime" style="margin-left: 57px"> <i class="fa fa-clock-o" style="font-size: 20px"></i>
-                        <br>
-                    <input type="submit" value="Pedir">
-                    </form></p>
-                </div>
-                {% else %}
-                Debe iniciar sesión para realizar reservas.
-                {% endif %}
 
-            </div>
             <div class="historial-reserva">
                 <h1 class="nombre">Historial de reservas</h1>
             </div>

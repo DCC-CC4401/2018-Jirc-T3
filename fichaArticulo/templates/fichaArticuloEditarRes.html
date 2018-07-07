@@ -35,19 +35,7 @@
 
             <div class="imagen">
                 <img class="foto" src="{{ item.img.url }}" >
-                <form action="{% url 'aceptarFoto' %}" method="post" enctype="multipart/form-data" id="des" style="display: inline-block">
-                        {% csrf_token %}
-                        <input type="file" name="imgFile"/>
-                        <input type="submit" class="btn" value="aceptar" name="{{ item.id }}" style="background-color: lightgreen">
 
-                        </form>
-                        <form action="{% url 'cancelarNombre' %}" method="post" enctype="multipart/form-data" style="display: inline-block">
-                        {% csrf_token %}
-                        <input type="submit" class="btn" value="cancelar" name="{{ item.id }}" style="background-color: lightcoral; width: 90px">
-
-
-                <br>
-                </form>
             </div>
 
             <div class="descripcion">
@@ -63,11 +51,25 @@
                 <h1 class="nombre">Historial de reservas</h1>
             </div>
             <div class="cuadro-reserva">
+            <form action="{% url 'aceptarRes' %}" method="post" enctype="multipart/form-data" id="des" style="display: inline-block">
+                        {% csrf_token %}
                 {% for fecha in item.Reserva.all %}
                     <tr>
                             - Desde el {{ fecha.iDate }} al las {{ fecha.iTime }}, hasta el {{ fecha.fDate }} a las {{ fecha.fTime }}<br>
+                            Reserva hecha por {{ fecha.reservaDe.username }}:
+                            <input type="checkbox" class="radio" value="{{ fecha.id }}" name="{{ fecha.id }}" />Borrar<br>
                     </tr>
                 {% endfor %}
+                <div>
+                        <input type="submit" class="btn" value="aceptar" name="{{ item.id }}" style="background-color: lightgreen">
+
+                        </form>
+                        <form action="{% url 'cancelarNombre' %}" method="post" enctype="multipart/form-data" style="display: inline-block">
+                        {% csrf_token %}
+                        <input type="submit" class="btn" value="cancelar" name="{{ item.id }}" style="background-color: lightcoral; width: 90px">
+                </div>
+                <br>
+                </form>
             </div>
         </div>
     </div>
