@@ -7,14 +7,7 @@
     <link rel="icon" href="{% static 'img/favicon.png' %}">
     <link href="https://fonts.googleapis.com/css?family=Clicker+Script" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}">
-      {% if user.is_authenticated %}
-        {% if user.is_person %}
-            <link rel="stylesheet" type="text/css" href="{% static 'css/person.css' %}">
-        {% else %}
-            <link rel="stylesheet" type="text/css" href="{% static 'css/manager.css' %}">
-        {% endif %}
-    {% endif %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}"
 
   </head>
   <header>
@@ -22,9 +15,7 @@
             <div class="col-6">
               <h1 class="logo">
                 <a href="{% url 'home' %}">
-
                   <img class="logo" src="{% static "Logo-Cei.png" %}" alt="My image" align="left"; style="width: 75px;">
-
                   {% if user.is_authenticated %}
                     {% if user.is_manager %}
                       <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="Manager Perfil"></span>
@@ -37,7 +28,7 @@
             </div>
             <div class="col-6 text-right" style="margin-top: 15px">
               {% if user.is_authenticated %}
-                <p class="pt-3"> <strong>{{ user.username }}</strong>. <a href="{% url 'logout' %}">Cerrar sesión</a>.</p>
+                <p class="pt-3"> <strong>{{ user.fist_name }}</strong>. <a href="{% url 'logout' %}">Cerrar sesión</a>.</p>
               {% else %}
                 <a href="{% url 'login' %}" class="btn btn-light" role="button">Iniciar sesión</a>
                 <a href="{% url 'signup' %}" class="btn btn-primary" role="button">Crear cuenta</a>
