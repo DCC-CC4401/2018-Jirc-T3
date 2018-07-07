@@ -41,3 +41,33 @@ def reserva(request):
         return redirect('/fichaArticulo/')
 
     return render(request, 'fichaArticulo.html', context)
+
+
+def editar(request):
+    item = Item.objects.all()
+
+    context = {
+        'item': item
+    }
+
+    return render(request, 'fichaArticuloEdit.html', context)
+
+
+def aceptarNombre(request):
+    item = Item.objects.all()
+
+    context = {
+        'item': item
+    }
+
+    if request.method == 'POST':
+
+        for it in item:
+            if it.id in request.POST:
+                name = request.POST['name']
+                it.name = name
+                it.save()
+
+                return redirect('/fichaArticulo/')
+
+    return render(request, 'fichaArticulo.html', context)

@@ -10,24 +10,35 @@
 </head>
 
 <form action="{% url 'reserva' %}" method="post" enctype="multipart/form-data">
-{% csrf_token %}
-<input id="name" type="text" name="name"/>
-<input id="imgFile" type="file" name="imgFile"/>
-<input type="submit" value="Agregar">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </form>
+    {% csrf_token %}
+    <input id="name" type="text" name="name"/>
+    <input id="imgFile" type="file" name="imgFile"/>
+    <input type="submit" value="Agregar">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</form>
 
 {% for inv in item %}
 <body>
     <div class="centre">
         <div class="derecha">
             <div class="nombre-estado">
-                <h1 class="nombre" style="max-width: 300px">{{ inv.name }}{{ inv.state }}</h1>
+                <form action="{% url 'aceptarNombre' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input id="name" type="text" name="name" placeholder="{{ inv.name }}" style="width: 250px;"/>
+                        <input type="submit" class="btn" value="aceptar" name="{{ inv.id }}" style="background-color: lightgreen">
+
+                        <a href="{% url 'fichaArticulo' %}">
+                            <input class="btn" value="cancelar" name="can" style="background-color: lightcoral; width: 90px">
+                        </a>
+
+                <br>
+                <h1 class="nombre" style="max-width: 300px">{{ inv.state }}</h1>
+                </form>
                 <img class="estado" src="{% static "Disponible.png" %}" alt="My image" width="150px">
 
             </div>
-            {% if user.is_manager %}
+            {% if user.is_person %}
                 <form action="{% url 'editar' %}" enctype="multipart/form-data">
                     <input type="submit" class="btn" value="Edit" name="mybtn">
                 </form>
@@ -81,8 +92,6 @@
                     </tr>
                 {% endfor %}
             </div>
-
-
         </div>
     </div>
 </body>

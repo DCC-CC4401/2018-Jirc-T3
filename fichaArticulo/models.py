@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 
 class FechaDeReserva(models.Model):
@@ -23,7 +24,7 @@ class Item(models.Model):
         (PRESTAMO, 'En prestamo'),
         (PERDIDO, 'Perdido'),
     )
-    id = models.AutoField(primary_key=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=30)
     Reserva = models.ManyToManyField(FechaDeReserva, blank=True)
     img = models.ImageField(blank=True, upload_to='imagenes',null=True)
