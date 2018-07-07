@@ -13,21 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import django.urls
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
-import landingPage.views
+from landingPage.views import landingPage, person, manager
 
 urlpatterns = [
-    django.urls.path('', django.urls.include('landingPage.urls')),
-    django.urls.path('accounts/', django.urls.include('django.contrib.auth.urls')),
-    django.urls.path('accounts/signup/', landingPage.views.landingPage.SignUpView.as_view(), name='signup'),
-    django.urls.path('accounts/signup/person/', landingPage.views.person.PersonSignUpView.as_view(), name='person_signup'),
-    django.urls.path(r'fichaArticulo/', django.urls.include('fichaArticulo.urls')),
-    django.urls.path(r'header/', django.urls.include('header.urls')),
-    django.urls.path(r'header/', django.urls.include('header.urls'))
+    path('', include('landingPage.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/signup/', landingPage.SignUpView.as_view(), name='signup'),
+    path('accounts/signup/person/', person.PersonSignUpView.as_view(), name='person_signup'),
+    path('accounts/signup/manager/', manager.ManagerSignUpView.as_view(), name='manager_signup'),
+    path(r'fichaArticulo/', include('fichaArticulo.urls')),
+    path(r'header/', include('header.urls')),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

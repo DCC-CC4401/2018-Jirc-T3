@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Crea una cuenta</h2>
-  <p class="lead">Selecciona el tipo de cuenta que deseas crear</p>
-  <a href="{% url 'person_signup' %}" class="btn btn-student btn-lg" role="button">Soy una persona</a>
+    <h2>Crea una cuenta</h2>
+    <p class="lead">Selecciona el tipo de cuenta que deseas crear</p>
+    <a href="{% url 'person_signup' %}" role="button">Person</a>
+    <a href="{% url 'manager_signup' %}" role="button">Manager</a>
 {% endblock %}

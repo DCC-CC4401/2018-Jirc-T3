@@ -7,10 +7,9 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
-from ..decorators import person_required, manager_required
-from ..models import User, Person
+from ..decorators import person_required
+from ..models import Profile, User
 from ..forms import PersonSignUpForm
-
 
 class PersonSignUpView(CreateView):
     model = User
@@ -26,9 +25,10 @@ class PersonSignUpView(CreateView):
         login(self.request, user)
         return redirect('person:landing_person')
 
-
 @method_decorator([login_required, person_required], name='dispatch')
 class LandingPersonListView(ListView):
-    model = User
+    model = Profile
     template_name = 'landingPage/person/landing_person.html'
+
+
 

@@ -9,8 +9,9 @@ class SignUpView(TemplateView):
 def home(request):
     if request.user.is_authenticated:
         if request.user.is_manager:
-            return redirect('manager:manager_landing_page')
+            return redirect('manager:landing_manager')
         else:
-            return redirect('person:landing_person')
+            if request.user.is_person:
+                return redirect('person:landing_person')
 
     return render(request, 'landingPage/home.html')

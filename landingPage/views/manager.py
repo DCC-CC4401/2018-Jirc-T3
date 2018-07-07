@@ -1,12 +1,37 @@
 from django.shortcuts import redirect, render
 from fichaArticulo.models import Item
 from landingPage.models import User
+from django.contrib import messages
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.db.models import Count
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import CreateView, ListView, UpdateView
+from ..decorators import manager_required
+from ..models import Profile
+from ..forms import ManagerSignUpForm
 
+class ManagerSignUpView(CreateView):
+    model = User
+    form_class = ManagerSignUpForm
+    template_name = 'registration/signup_form.html'
 
-def manager_landing_page(request):
+    def get_context_data(self, **kwargs):
+        kwargs['user_type'] = 'manager'
+        return super().get_context_data(**kwargs)
 
-    return render(request, 'landingPage/manager/manager_landing_page.html')
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('manager:landing_manager')
 
+@method_decorator([login_required, manager_required], name='dispatch')
+class LandingManagerListView(ListView):
+    model = Profile
+    template_name = 'landingPage/manager/landing_manager.html'
 
 def display_table(request):
     items = Item.objects.all()
