@@ -1,63 +1,87 @@
 {% load static %}<!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Sistema de Reservas CEI{% endblock %}</title>
     <link rel="icon" href="{% static 'img/favicon.png' %}">
     <link href="https://fonts.googleapis.com/css?family=Clicker+Script" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/header.css' %}"
-
-  </head>
-  <header>
-          <div class="row" style="background-color: #EDEDED">
-            <div class="col-6">
-              <h1 class="logo">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+<header>
+    <div class="row" style="background-color: #EDEDED">
+        <div class="col-6">
+            <h1 class="logo">
                 <a href="{% url 'home' %}">
-                  <img class="logo" src="{% static "Logo-Cei.png" %}" alt="My image" align="left"; style="width: 75px;">
-                  {% if user.is_authenticated %}
-                    {% if user.is_manager %}
-                      <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="Manager Perfil"></span>
-                    {% else %}
-                      <span class="icon-graduation-cap" data-toggle="tooltip" data-placement="right" title="Person Perfil"></span>
+                    <img class="logo" src="{% static "Logo-Cei.png" %}" alt="My image" align="left"; style="width: 75px;">
+                    {% if user.is_authenticated %}
+                        {% if user.is_manager %}
+                            <span class="icon-feather" data-toggle="tooltip" data-placement="right" title="Manager Perfil"></span>
+                        {% else %}
+                            <span class="icon-graduation-cap" data-toggle="tooltip" data-placement="right" title="Person Perfil"></span>
+                        {% endif %}
                     {% endif %}
-                  {% endif %}
                 </a>
-              </h1>
-            </div>
-            <div class="col-6 text-right" style="margin-top: 15px">
-              {% if user.is_authenticated %}
-                <p class="pt-3"> <strong>{{ user.fist_name }}</strong>. <a href="{% url 'logout' %}">Cerrar sesión</a>.</p>
-              {% else %}
+            </h1>
+        </div>
+        <div class="col-6 text-right" style="margin-top: 15px">
+            {% if user.is_authenticated %}
+                <table class="table" align="right"; style="width: 75px;">
+                    <tr>
+                        <td>
+                            <div>
+                                <img class="logo" src="{% static "correo.png" %}"  align="right"; style="width: 75px;">
+                            </div>
+                        </td>
+                        <td>
+                            <strong>{{ user.first_name }} {{ user.last_name }} {{ user.rut }} {{ user.email }}</strong>
+                        </td>
+                        <td>
+                            <div>
+                                <img src="{% static "usuario.jpg" %}" align="right"; style="width: 75px;">
+                                <div class="dropdown show">
+                                    <a type="image" src="{% static "usuario.jpg" %}" align="right"; style="width: 75px;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#">Ver mi Perfil</a>
+                                        <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+            {% else %}
                 <a href="{% url 'login' %}" class="btn btn-light" role="button">Iniciar sesión</a>
                 <a href="{% url 'signup' %}" class="btn btn-primary" role="button">Crear cuenta</a>
-              {% endif %}
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="card-body">
-              {% for message in messages %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-                  {{ message }}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-              {% endfor %}
-              {% block content %}
-              {% endblock %}
-            </div>
-          </div>
-          <footer>
-           </footer>
+            {% endfor %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <footer>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript">
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-      })
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        })
     </script>
-  </header>
+</header>
 </html>
