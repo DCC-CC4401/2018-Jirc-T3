@@ -8,24 +8,34 @@
         <option name="manageScript" value="$MODULE_DIR$/manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
-        <option name="trackFilePattern" value="migrations" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/landingPage" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/fichaArticulo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/header" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Tarea_3" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/venv1" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (venv)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/venv/lib/python3.6/site-packages/django/forms/templates" />
+        <option value="$MODULE_DIR$/templates" />
+        <option value="$MODULE_DIR$/landingPage/templates" />
+        <option value="$MODULE_DIR$/fichaArticulo/templates" />
+        <option value="$MODULE_DIR$/header/templates" />
+        <option value="$MODULE_DIR$/landingPage/static" />
+        <option value="$MODULE_DIR$/header/static" />
+        <option value="$MODULE_DIR$/fichaArticulo/static" />
+        <option value="$MODULE_DIR$/static" />
       </list>
     </option>
   </component>

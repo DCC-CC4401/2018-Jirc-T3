@@ -1,5 +1,90 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    Manager
+{% endblock %}
+
+{% block header %}
+        {% load static %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'manager/css/tablas.css' %}">
+        <!-- Add icon library -->
+
+{% endblock header %}
+
 {% block content %}
+    <script>
+    function show(nr) {
+        document.getElementById("table1").style.display="none";
+        document.getElementById("table2").style.display="none";
+        document.getElementById("table3").style.display="none";
+
+        document.getElementById("table"+nr).style.display="block";
+    }
+    </script>
+    <div class="flex-container">
+        <h1>Manager</h1>
+
+        <div class="icon-bar">
+        <a href="#" onclick="show(1)" ><i class="fa fa-user"></i></a>
+        <a href="#" onclick="show(2)"><i class="fa fa-shopping-cart"></i></a>
+        <a href="#" onclick="show(3)" ><i class="fa fa-clock-o"></i></a>
+        </div>
+
+        <div id="table1">
+
+            <div>
+            <h3>Usuarios</h3>
+                <table>
+                    <tr>
+                        <th>ID </th>
+                        <th>Nombre </th>
+                        <th>Apellido </th>
+                        <th>RUT</th>
+                        <th>Correo</th>
+                        <th>Estado</th>
+                    </tr>
+
+                {% block tabla1 %}
+                {% endblock %}
+                </table>
+            </div>
+
+        </div>
+        <div id="table2">
+
+            <div>
+            <h3>Articulos</h3>
+            <table>
+
+                <tr>
+                <th>ID </th>
+                <th>Nombre </th>
+                <th>Estado </th>
+                </tr>
+
+                {% block tabla2 %}
+                {% endblock %}
+            </table>
+        </div>
+
+            <div>
+                <h3>Espacios</h3>
+                <table>
+
+                <tr>
+                <th>ID </th>
+                <th>Nombre </th>
+                <th>Estado </th>
+                </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <div id="table3"> Content of 3 </div>
+
+        </div>
+    </div>
 
 {% endblock %}

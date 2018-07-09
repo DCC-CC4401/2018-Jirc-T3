@@ -1,22 +1,24 @@
-{% extends 'tablas/landing_manager.html' %}
-
+{% extends 'landingPage/manager/landing_manager.html' %}
 {% block tabla1 %}
-    {% for user in users %}
+    {% for user in object_list %}
     <tr>
     <td>{{ user.id }}</td>
-    <td>{{ user.name }}</td>
+    <td>{{ user.first_name}}</td>
+    <td>{{ user.last_name }}</td>
+    <td>{{ user.rut }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.state }}</td>
     </tr>
 
     {% endfor %}
 {% endblock %}
 
 {% block tabla2 %}
-    {% for item in items %}
+    {% for item in items_list %}
     <tr>
     <td>{{ item.id }}</td>
     <td>{{ item.name }}</td>
     <td>{{ item.state }}</td>
     </tr>
-
     {% endfor %}
 {% endblock %}

@@ -14,6 +14,7 @@ from ..decorators import manager_required
 from ..models import User
 from ..forms import ManagerSignUpForm
 
+
 class ManagerSignUpView(CreateView):
     model = User
     form_class = ManagerSignUpForm
@@ -28,15 +29,18 @@ class ManagerSignUpView(CreateView):
         login(self.request, user)
         return redirect('manager:landing_manager')
 
+
 @method_decorator([login_required, manager_required], name='dispatch')
 class LandingManagerListView(ListView):
-    model = User
-    template_name = 'landingPage/manager/landing_manager.html'
+    template_name = 'landingPage/manager/tablas.html'
+    queryset = User.objects.all()
 
-def display_table(request):
-    items = Item.objects.all()
-    users = User.objects.all()
-    # Spaces
-    #Schedule =
-    # return render(request, 'tablas/tablas.html', {'items, Users, Spaces, Schedule': items, Users, Spaces, Schedules})
-    return render(request, 'landingPage/manager/tablas.html', {'items': items, 'users': users})
+    def get_context_data(self, **kwargs):
+        context = super(LandingManagerListView, self).get_context_data()
+        context['items_list'] = Item.objects.all()
+        return context
+
+
+
+
+
