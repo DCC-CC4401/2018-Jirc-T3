@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 col-sm-10 col-12">
+            <h2>Actualice su contraseña:</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit">Save changes</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

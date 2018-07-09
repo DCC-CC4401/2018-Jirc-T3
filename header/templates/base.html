@@ -42,14 +42,15 @@
                                 <img src="{% static "usuario.jpg" %}" align="right"; style="width: 75px;">
                                 <div class="dropdown show">
                                     <a type="image" src="{% static "usuario.jpg" %}" align="right"; style="width: 75px;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Ver mi Perfil</a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" align="left"; style="width: 75px;">
+                                        {% if user.is_person %}
+                                            <a class="dropdown-item" href="{% url 'person:profile_person' %}">Ver mi Perfil</a>
+                                            <a class="dropdown-item" href="{% url 'person:profile_person_change_pass' %}">Cambiar contraseña</a>
+                                        {% endif %}
                                         <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
                                     </div>
                                 </div>
                             </div>
-
                         </td>
                     </tr>
                 </table>

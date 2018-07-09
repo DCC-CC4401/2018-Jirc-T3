@@ -9,6 +9,8 @@ urlpatterns = [
 
     path('person/', include(([
         path('', person.LandingPersonListView.as_view(), name='landing_person'),
+        path('perfil/', person.ProfilePersonView.as_view(), name='profile_person'),
+        path('perfil/update/pass', person.change_password, name='profile_person_change_pass'),
     ], 'landingPage'), namespace='person')),
 
     path('manager/', include(([

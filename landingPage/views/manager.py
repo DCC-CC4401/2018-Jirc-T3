@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView
 from ..decorators import manager_required
-from ..models import Profile
+from ..models import User
 from ..forms import ManagerSignUpForm
 
 class ManagerSignUpView(CreateView):
@@ -30,7 +30,7 @@ class ManagerSignUpView(CreateView):
 
 @method_decorator([login_required, manager_required], name='dispatch')
 class LandingManagerListView(ListView):
-    model = Profile
+    model = User
     template_name = 'landingPage/manager/landing_manager.html'
 
 def display_table(request):
