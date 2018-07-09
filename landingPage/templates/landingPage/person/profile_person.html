@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% load crispy_forms_tags %}
+{% block title %}
+    Perfil de Usuario
+{% endblock %}
+{% block extra_head %}
 
+{% endblock %}
 {% block content %}
-  <h2>Perfil </h2>
-
-  <hr>
+    <div align="center">
+        <button class="button-black">Reserva tu espacio</button>
+        <button class="button-black">Pide tu artículo</button>
+    </div>
+    <div align="center">
+        <ul>
+            <li><a class="active" href="#">Reservas</a></li>
+            <li><a href="#">Préstamos</a></li>
+        </ul>
+    </div>
 {% endblock %}
