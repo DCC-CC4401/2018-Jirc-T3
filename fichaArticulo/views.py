@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
-from .models import Item, FechaDeReserva, User
+from .models import Item, FechaDeReserva
+from landingPage.models import User
 # Create your views here.
 
 
@@ -37,7 +38,7 @@ def fichaArticulo(request):
                 for us in user:
                     if (us.rut or us.email) in request.POST:
                         u = us
-                fecha = FechaDeReserva(iDate=idate, fDate=fdate, iTime=itime, fTime=ftime, reservaDe= u)
+                fecha = FechaDeReserva(iDate=idate, fDate=fdate, iTime=itime, fTime=ftime, reservaDe=u)
                 fecha.save()
                 inv.save()
                 inv.Reserva.add(fecha)
