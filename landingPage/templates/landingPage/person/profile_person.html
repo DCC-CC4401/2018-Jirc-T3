@@ -4,18 +4,66 @@
 {% block title %}
     Perfil de Usuario
 {% endblock %}
-{% block extra_head %}
 
-{% endblock %}
+{% block header %}
+        {% load static %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'person/css/tablas.css' %}">
+        <!-- Add icon library -->
+
+{% endblock header %}
+
 {% block content %}
+    <script>
+    function show(nr) {
+        document.getElementById("table1").style.display="none";
+        document.getElementById("table2").style.display="none";
+        document.getElementById("table3").style.display="none";
+
+        document.getElementById("table"+nr).style.display="block";
+    }
+    </script>
     <div align="center">
-        <button class="button-black">Reserva tu espacio</button>
-        <button class="button-black">Pide tu artículo</button>
+    <button class="button-black">Reserva tu espacio</button>
+    <button class="button-black">Pide tu artículo</button>
     </div>
+
     <div align="center">
         <ul>
-            <li><a class="active" href="#">Reservas</a></li>
-            <li><a href="#">Préstamos</a></li>
+            <li><a href="#" onclick="show(1)">Reservas</a></li>
+            <li><a href="#" onclick="show(2)">Préstamos</a></li>
         </ul>
+
+        <div id="table1">
+            <h3>Reservas</h3>
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                    </tr>
+
+                {% block Reservas %}
+                {% endblock %}
+                </table>
+        </div>
+
+
+        <div id="table2">
+            <h3>Préstamos</h3>
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                    </tr>
+
+                {% block Prestamos %}
+                {% endblock %}
+                </table>
+        </div>
+        </div>
+
+        <div id="table3">
+
+        </div>
     </div>
+
 {% endblock %}
+

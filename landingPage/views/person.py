@@ -8,7 +8,7 @@ from django.views.generic import CreateView, ListView, UpdateView
 from ..decorators import person_required
 from ..models import User
 from ..forms import PersonSignUpForm
-
+from fichaArticulo.models import Item, FechaDeReserva
 
 
 
@@ -34,8 +34,15 @@ class LandingPersonListView(ListView):
 
 @method_decorator([login_required, person_required], name='dispatch')
 class ProfilePersonView(ListView):
-    model = User
-    template_name = 'landingPage/person/profile_person.html'
+    template_name = 'landingPage/person/tablas.html'
+    queryset = User.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfilePersonView, self).get_context_data()
+        context['items_list'] = Item.objects.all()
+        context['reservas_list'] = FechaDeReserva.objects.all()
+        return context
+
 
 
 @login_required
@@ -55,3 +62,12 @@ def change_password(request):
     return render(request, 'landingPage/person/profile_person_change_pass.html', {
         'form': form
     })
+
+
+class ReservaView(ListView):
+    template_name = 'landingPage/person/tablas.html'
+    queryset = Item.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(ReservaView, self).get_context_data()
+        return context

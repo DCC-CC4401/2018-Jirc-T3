@@ -28,8 +28,8 @@ form.buscador button:hover {
     color: white
 }
 
-form.buscador::after {
-    content: "";
-    clear: both;
-    display;
-}
+/*form.buscador::after {*/
+    /*content: "";*/
+    /*clear: both;*/
+    /*display;*/
+/*}*/

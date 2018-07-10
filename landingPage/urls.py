@@ -10,11 +10,16 @@ urlpatterns = [
     path('person/', include(([
         path('', person.LandingPersonListView.as_view(), name='landing_person'),
         path('perfil/', person.ProfilePersonView.as_view(), name='profile_person'),
+        # path('perfil/', person.ReservaView.as_view(), name='profile_reservas'),
         path('perfil/update/pass', person.change_password, name='profile_person_change_pass'),
+
     ], 'landingPage'), namespace='person')),
 
     path('manager/', include(([
         path('', manager.LandingManagerListView.as_view(), name='landing_manager'),
     ], 'landingPage'), namespace='manager')),
     path('manager/horario/', manager.testing_horario, name='testing_horario'),
+
+
 ]
+

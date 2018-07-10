@@ -1,0 +1,34 @@
+/*flex- container*/
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.flex-container div {
+    float: left;
+    margin: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+/*tables*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#table1, #table2, #table3{
+    display: none;
+}
+
+
+

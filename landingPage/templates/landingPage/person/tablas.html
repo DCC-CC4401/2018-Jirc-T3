@@ -1,0 +1,16 @@
+{% extends 'landingPage/person/profile_person.html' %}
+
+{% block tabla1 %}
+    {% for res in reservas_list %}
+
+    <tr>
+    <td>{{ res.name}}</td>
+    </tr>
+
+    {% endfor %}
+{% endblock %}
+
+
+{% block Prestamos %}
+
+{% endblock %}
