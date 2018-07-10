@@ -50,6 +50,9 @@
                                             <a class="dropdown-item" href="{% url 'person:landing_person' %}">Inicio</a>
                                             <a class="dropdown-item" href="{% url 'person:profile_person' %}">Ver mi Perfil</a>
                                             <a class="dropdown-item" href="{% url 'person:profile_person_change_pass' %}">Cambiar contraseña</a>
+
+                                        {% else %}
+                                            <a class="dropdown-item" href="{% url 'ficha:fichaArticulo'%}">fichas de artículos</a>
                                         {% endif %}
                                         <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
                                     </div>

@@ -1,9 +1,13 @@
 from django.conf.urls import url
+from django.urls import include, path
+from fichaArticulo import views as ficha_views
 
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.fichaArticulo, name='fichaArticulo'),
+
+    path('', include(([path('', ficha_views.fichaArticulo, name='fichaArticulo')],'fichaArticulo'), namespace='ficha')),
+    path(r'', ficha_views.fichaArticulo, name='fichaArticulo'),
     url(r'^lista/$', views.lista, name='lista'),
     url(r'^reserva/$', views.reserva, name='reserva'),
     url(r'^editar/$', views.editar, name='editar'),
