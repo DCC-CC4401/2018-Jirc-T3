@@ -14,10 +14,22 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/moment.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/bootstrap-datetimepicker.*js"></script>
+    <!-- include your less or built css files  -->
+    <!--
+    bootstrap-datetimepicker-build.less will pull in "../bootstrap/variables.less" and "bootstrap-datetimepicker.less";
+    or
+    <link rel="stylesheet" href="/Content/bootstrap-datetimepicker.css" />
+    -->
+
+
 
 
 </head>
-
+{% if user.is_manager %}
 <form action="{% url 'reserva' %}" method="post" enctype="multipart/form-data">
 {% csrf_token %}
 <input id="name" type="text" name="name"/>
@@ -26,6 +38,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </form>
+{% endif %}
 
 <body>
     <div class="centre">
@@ -105,7 +118,12 @@
                         $('#idatepicker').datepicker({
                             format: 'dd/mm/yyyy',
                             uiLibrary: 'bootstrap4',
-                            daysOfWeekDisabled: [0,6]
+                            daysOfWeekDisabled: [0,6],
+                            startDate: '+1d',
+                            todayHighlight: true,
+                            orientation: "top",
+                            autoclose: true,
+                            clearBtn: true
                         });
                     </script>
                         <br>
@@ -115,7 +133,12 @@
                         $('#fdatepicker').datepicker({
                             format: 'dd/mm/yyyy',
                             uiLibrary: 'bootstrap4',
-                            daysOfWeekDisabled: [0,6]
+                            daysOfWeekDisabled: [0,6],
+                            startDate: '+1d',
+                            todayHighlight: true,
+                            orientation: "top",
+                            autoclose: true,
+                            clearBtn: true
                         });
                     </script>
                         <br>
@@ -157,9 +180,6 @@
                     <input type="submit" class="btn" value="Editar Reservas" name="{{ item.id }}">
                 </form>
             {% endif %}
-
-
-
 
         </div>
     </div>

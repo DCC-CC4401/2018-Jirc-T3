@@ -23,7 +23,21 @@
                         <input type="submit" class="btn" value="cancelar" name="{{ item.id }}" style="background-color: lightcoral; width: 90px">
 
                 </form>
-                <img class="estado" src="{% static "Disponible.png" %}" alt="My image" width="150px">
+                {% if item.state == 1 %}
+                    <div class = "disponible" style="width: auto;border-radius: 5px;color: white; background-color: green">< Disponible</div>
+                    {% endif %}
+
+                {% if item.state == 2 %}
+                    <div class = "reparacion" style="border-radius: 5px;color: white; background-color: darkgray">< En Reparación</div>
+                {% endif %}
+
+                {% if item.state == 3 %}
+                    <div class = "prestamo" style="border-radius: 5px;color: white; background-color: orange">< En Préstamo</div>
+                {% endif %}
+
+                {% if item.state == 4 %}
+                    <div class = "perdido" style="border-radius: 5px;color: white; background-color: red;">< Perdido</div>
+                {% endif %}
 
             </div>
 
