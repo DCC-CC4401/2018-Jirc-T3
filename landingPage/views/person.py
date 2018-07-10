@@ -71,3 +71,21 @@ class ReservaView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ReservaView, self).get_context_data()
         return context
+
+def busqueda(request):
+    context = {}
+    nombre = request.GET.get('nombre_normal', '')
+    if nombre:
+        item = Item.objects.all().filter(name__icontains=nombre)
+        context['articulos'] = item
+    return render(request, 'person:landing_person', context)
+
+def busqueda_avanzada(request):
+    context = {}
+    nombre = request.GET.get('nombre_avanzada', '')
+    identificador = request.GET.get('identificador', '')
+    estado = request.GET.get('estado', '')
+    if nombre and identificador and estado:
+        item = Item.objects.all().filter(name_icontains=nombre, id=identificador, state=estado)
+        context['items'] = item
+    return render(request, 'person:landing_person', context)
