@@ -33,8 +33,8 @@ class FechaDeReserva(models.Model):
     )
 
     id = models.CharField(max_length=30, primary_key=True, default=str(uuid.uuid4()).replace("-", ""), editable=False)
-    iTime = models.PositiveSmallIntegerField(choices=TIME, default="")
-    fTime = models.PositiveSmallIntegerField(choices=TIME, default="")
+    iTime = models.CharField(max_length=150, default="")
+    fTime = models.CharField(max_length=150, default="")
     iDate = models.CharField(max_length=150, default="")  #validators=[MinValueValidator("09:00"), MaxValueValidator("18:00")]
     fDate = models.CharField(max_length=150, default="")
     reservaDe = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
