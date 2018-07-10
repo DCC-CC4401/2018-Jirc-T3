@@ -16,4 +16,5 @@ urlpatterns = [
     path('manager/', include(([
         path('', manager.LandingManagerListView.as_view(), name='landing_manager'),
     ], 'landingPage'), namespace='manager')),
+    path('manager/horario/', manager.testing_horario, name='testing_horario'),
 ]

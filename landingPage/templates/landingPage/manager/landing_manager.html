@@ -22,9 +22,8 @@
         document.getElementById("table"+nr).style.display="block";
     }
     </script>
+    <h1>Manager</h1>
     <div class="flex-container">
-        <h1>Manager</h1>
-
         <div class="icon-bar">
         <a href="#" onclick="show(1)" ><i class="fa fa-user"></i></a>
         <a href="#" onclick="show(2)"><i class="fa fa-shopping-cart"></i></a>
@@ -51,6 +50,7 @@
             </div>
 
         </div>
+
         <div id="table2">
 
             <div>
@@ -63,7 +63,7 @@
                 <th>Estado </th>
                 </tr>
 
-                {% block tabla2 %}
+                {% block tabla2_articulo %}
                 {% endblock %}
             </table>
         </div>
@@ -72,18 +72,30 @@
                 <h3>Espacios</h3>
                 <table>
 
-                <tr>
-                <th>ID </th>
-                <th>Nombre </th>
-                <th>Estado </th>
-                </tr>
+                    <tr>
+                    <th>ID </th>
+                    <th>Nombre </th>
+                    <th>Estado </th>
+                    </tr>
+
+                    {% block tabla2_espacio %}
+                    {% endblock %}
                 </table>
             </div>
 
         </div>
 
-        <div id="table3"> Content of 3 </div>
+        <div id="table3">
 
+                <div>
+                <h3>Horario de Reservas</h3>
+                <table>
+
+                    {% block tabla3 %}
+                    {% endblock %}
+                </table>
+
+            </div>
         </div>
     </div>
 

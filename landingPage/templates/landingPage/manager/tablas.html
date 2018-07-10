@@ -1,24 +1,46 @@
 {% extends 'landingPage/manager/landing_manager.html' %}
 {% block tabla1 %}
     {% for user in object_list %}
+
     <tr>
     <td>{{ user.id }}</td>
     <td>{{ user.first_name}}</td>
     <td>{{ user.last_name }}</td>
     <td>{{ user.rut }}</td>
     <td>{{ user.email }}</td>
-    <td>{{ user.state }}</td>
+    <td>{{ user.get_state_display }}</td>
     </tr>
 
     {% endfor %}
 {% endblock %}
 
-{% block tabla2 %}
+{% block tabla2_articulo %}
     {% for item in items_list %}
-    <tr>
-    <td>{{ item.id }}</td>
-    <td>{{ item.name }}</td>
-    <td>{{ item.state }}</td>
-    </tr>
+        {% if item.is_articulo %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.get_state_display }}</td>
+            </tr>
+        {% endif %}
     {% endfor %}
 {% endblock %}
+
+
+{% block tabla2_espacio %}
+    {% for item in items_list %}
+        {% if item.is_espacio %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.get_state_display }}</td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+
+{% block horario %}
+    {% load static %}
+
+    {% endblock %}

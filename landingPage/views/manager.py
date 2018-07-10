@@ -41,6 +41,5 @@ class LandingManagerListView(ListView):
         return context
 
 
-
-
-
+def testing_horario(request):
+    return render(request, 'landingPage/manager/testing_horario.html')
