@@ -11,7 +11,6 @@ from ..forms import PersonSignUpForm
 from fichaArticulo.models import Item, FechaDeReserva
 
 
-
 class PersonSignUpView(CreateView):
     model = User
     form_class = PersonSignUpForm
@@ -25,6 +24,7 @@ class PersonSignUpView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect('person:landing_person')
+
 
 @method_decorator([login_required, person_required], name='dispatch')
 class LandingPersonListView(ListView):
